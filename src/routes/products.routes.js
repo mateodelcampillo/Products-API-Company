@@ -10,9 +10,9 @@ router.get("/", getProducts)
 
 router.get("/:productId", getProductById)
 
-router.put("/:productId",verifyToken, updateProductBy)
+router.put("/:productId",[verifyToken,isAdmin], updateProductBy)
 
-router.delete("/:productId",[verifyToken, isModerator], deleteProductById)
+router.delete("/:productId",[verifyToken, isAdmin], deleteProductById)
 
 
 export default router
